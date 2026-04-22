@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Usuarios - Adminova</title>
+    <title>Empresas - Adminova</title>
 
     <style>
         body {
@@ -37,32 +37,7 @@
 </head>
 <body>
 
-    <h1>Módulo Usuarios</h1>
-
-    <!-- FORMULARIO -->
-    <h2>Crear Usuario</h2>
-
-    <form method="POST">
-        {% csrf_token %}
-
-        <input type="text" name="nombre" placeholder="Nombre"><br><br>
-        <input type="email" name="correo" placeholder="Correo"><br><br>
-        <input type="text" name="rol" placeholder="Rol"><br><br>
-
-        <button type="submit">Guardar</button>
-    </form>
-
-    <!-- LISTA -->
-    <h2>Lista de Usuarios</h2>
-
-    <ul>
-        {% for usuario in usuarios %}
-            <li>
-                {{ usuario.nombre }} - {{ usuario.correo }} - {{ usuario.rol }}
-                <a href="/eliminar/{{ usuario.id }}/">❌</a>
-            </li>
-        {% endfor %}
-    </ul>
+    <h1>Módulo Empresas</h1>
 
     <br>
 
