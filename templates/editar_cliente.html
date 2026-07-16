@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Editar Cliente | Adminova ERP</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#eef2f7;
+padding:40px;
+}
+
+.contenedor{
+max-width:700px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+h1{
+margin-bottom:25px;
+color:#0f172a;
+}
+
+input,
+select{
+width:100%;
+padding:12px;
+margin-bottom:18px;
+border:1px solid #dcdcdc;
+border-radius:8px;
+font-size:15px;
+font-family:inherit;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+.volver{
+display:inline-block;
+margin-top:20px;
+text-decoration:none;
+color:white;
+background:#0f172a;
+padding:10px 20px;
+border-radius:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>✏️ Editar Cliente</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="nombre"
+value="{{ cliente.nombre }}"
+required>
+
+<select name="tipo_documento" required>
+<option value="CC" {% if cliente.tipo_documento == 'CC' %}selected{% endif %}>Cédula de Ciudadanía (CC)</option>
+<option value="NIT" {% if cliente.tipo_documento == 'NIT' %}selected{% endif %}>NIT</option>
+</select>
+
+<input
+type="text"
+name="numero_documento"
+value="{{ cliente.numero_documento }}"
+required>
+
+<input
+type="text"
+name="telefono"
+value="{{ cliente.telefono }}"
+required>
+
+<input
+type="email"
+name="correo"
+value="{{ cliente.correo }}"
+required>
+
+<input
+type="text"
+name="direccion"
+value="{{ cliente.direccion }}"
+required>
+
+<button type="submit">
+
+Guardar Cambios
+
+</button>
+
+</form>
+
+<a class="volver" href="/clientes/">
+
+← Volver a Clientes
+
+</a>
+
+</div>
+
+</body>
+</html>

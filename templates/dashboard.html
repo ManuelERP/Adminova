@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adminova ERP</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#eef2f7;
+}
+
+.sidebar{
+
+position:fixed;
+left:0;
+top:0;
+
+width:250px;
+height:100vh;
+
+background:#0f172a;
+
+padding:25px;
+
+}
+
+.sidebar h2{
+
+color:white;
+margin-bottom:40px;
+text-align:center;
+
+}
+
+.sidebar a{
+
+display:block;
+
+padding:15px;
+
+margin-bottom:10px;
+
+color:#cbd5e1;
+
+text-decoration:none;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.sidebar a:hover{
+
+background:#2563eb;
+
+color:white;
+
+transform:translateX(5px);
+
+}
+
+.main{
+
+margin-left:250px;
+
+padding:30px;
+
+}
+
+.top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:30px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+margin-bottom:30px;
+
+}
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.numero{
+
+font-size:35px;
+
+font-weight:bold;
+
+margin-bottom:10px;
+
+color:#2563eb;
+
+}
+
+.modulos{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:20px;
+
+}
+
+.modulo{
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+text-align:center;
+
+}
+
+.modulo:hover{
+
+transform:scale(1.03);
+
+}
+
+.modulo a{
+
+text-decoration:none;
+
+font-size:20px;
+
+color:#0f172a;
+
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>🚀 Adminova ERP</h2>
+
+<a href="/dashboard/">🏠 Dashboard</a>
+
+<a href="/usuarios/">👥 Usuarios</a>
+
+<a href="/empresas/">🏢 Empresas</a>
+
+<a href="/productos/">📦 Productos</a>
+
+<a href="/clientes/">🧑‍💼 Clientes</a>
+
+<a href="/ventas/">💰 Ventas</a>
+
+<a href="#">📊 Reportes</a>
+
+<a href="/logout/">🚪 Cerrar sesión</a>
+
+</div>
+
+<div class="main">
+
+<div class="top">
+
+<h1>Panel Principal</h1>
+
+<h3>Bienvenido al sistema</h3>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="numero">{{ usuarios|length }}</div>
+
+Usuarios
+
+</div>
+
+<div class="card">
+
+<div class="numero">1</div>
+
+Empresas
+
+</div>
+
+<div class="card">
+
+<div class="numero">0</div>
+
+Ventas
+
+</div>
+
+<div class="card">
+
+<div class="numero">0</div>
+
+Productos
+
+</div>
+
+</div>
+
+<div class="modulos">
+
+<div class="modulo">
+
+<a href="/usuarios/">👥 Gestionar Usuarios</a>
+
+</div>
+
+<div class="modulo">
+
+<a href="/empresas/">🏢 Gestionar Empresas</a>
+
+</div>
+
+<div class="modulo">
+
+<a href="/productos/">📦 Gestionar Productos</a>
+
+</div>
+
+<div class="modulo">
+
+<a href="/ventas/">💰 Gestionar Ventas</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

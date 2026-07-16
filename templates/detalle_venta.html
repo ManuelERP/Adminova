@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Detalle de Venta | Adminova ERP</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#eef2f7;
+padding:40px;
+}
+
+.contenedor{
+max-width:800px;
+margin:auto;
+}
+
+h1{
+margin-bottom:25px;
+color:#0f172a;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+margin-bottom:25px;
+}
+
+th{
+background:#0f172a;
+color:white;
+padding:16px;
+}
+
+td{
+padding:15px;
+text-align:center;
+border-bottom:1px solid #ececec;
+}
+
+.total{
+text-align:right;
+font-size:20px;
+font-weight:bold;
+color:#2563eb;
+margin-bottom:25px;
+}
+
+.volver{
+display:inline-block;
+text-decoration:none;
+color:white;
+background:#0f172a;
+padding:10px 20px;
+border-radius:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>🧾 Venta #{{ venta.id }} — {{ venta.fecha|date:"d/m/Y H:i" }}</h1>
+
+<p style="margin-bottom:20px;">Cliente: {{ venta.cliente.nombre|default:"Sin cliente registrado" }}</p>
+
+<table>
+
+<tr>
+<th>Producto</th>
+<th>Cantidad</th>
+<th>Precio unitario</th>
+<th>Subtotal</th>
+</tr>
+
+{% for detalle in venta.detalles.all %}
+<tr>
+<td>{{ detalle.producto.nombre }}</td>
+<td>{{ detalle.cantidad }}</td>
+<td>${{ detalle.precio_unitario }}</td>
+<td>${{ detalle.subtotal }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<div class="total">Total: ${{ venta.total }}</div>
+
+<a class="volver" href="/ventas/">← Volver a Ventas</a>
+
+</div>
+
+</body>
+</html>
